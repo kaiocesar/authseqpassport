@@ -1,5 +1,20 @@
-var express = require('express');
+var express = require('express')
+	, flash = require('connect-flash')
+	, passport = require('passport')
+	, bodyParser = require('body-parser')
+	, cookieParser = require('cookie-parser')
+	, Sequelize = require('sequelize');
+
+LocalStrategy = require('passport-local').Strategy;
+
+
 var app = express();
+
+app.use(cookieParser());
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 
 app.get('/', function(req, res){
